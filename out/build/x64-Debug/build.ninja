@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: ORGTools
-# Configurations: Debug
+# Configurations: Release
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Debug
+CONFIGURATION = Release
 # =============================================================================
 # Include auxiliary files.
 
@@ -54,72 +54,99 @@ build edit_cache: phony CMakeFiles\edit_cache.util
 
 build cmake_object_order_depends_target_ORGTools: phony || cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_nativefiledialog
 
-build CMakeFiles\ORGTools.dir\src\Main.cpp.obj: CXX_COMPILER__ORGTools_Debug ..\..\..\src\Main.cpp || cmake_object_order_depends_target_ORGTools
+build CMakeFiles\ORGTools.dir\src\Main.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\src\Main.cpp || cmake_object_order_depends_target_ORGTools
   DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
   OBJECT_DIR = CMakeFiles\ORGTools.dir
   OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
   TARGET_PDB = ..\..\..\bin\ORGTools.pdb
 
-build CMakeFiles\ORGTools.dir\src\WindowView.cpp.obj: CXX_COMPILER__ORGTools_Debug ..\..\..\src\WindowView.cpp || cmake_object_order_depends_target_ORGTools
+build CMakeFiles\ORGTools.dir\src\WindowView.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\src\WindowView.cpp || cmake_object_order_depends_target_ORGTools
   DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
   OBJECT_DIR = CMakeFiles\ORGTools.dir
   OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
   TARGET_PDB = ..\..\..\bin\ORGTools.pdb
 
-build CMakeFiles\ORGTools.dir\libs\imgui\imgui.cpp.obj: CXX_COMPILER__ORGTools_Debug ..\..\..\libs\imgui\imgui.cpp || cmake_object_order_depends_target_ORGTools
+build CMakeFiles\ORGTools.dir\src\ORGCopy.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\src\ORGCopy.cpp || cmake_object_order_depends_target_ORGTools
   DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
+  INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
+  OBJECT_DIR = CMakeFiles\ORGTools.dir
+  OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
+  TARGET_PDB = ..\..\..\bin\ORGTools.pdb
+
+build CMakeFiles\ORGTools.dir\src\SharedUtil.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\src\SharedUtil.cpp || cmake_object_order_depends_target_ORGTools
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
+  INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
+  OBJECT_DIR = CMakeFiles\ORGTools.dir
+  OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
+  TARGET_PDB = ..\..\..\bin\ORGTools.pdb
+
+build CMakeFiles\ORGTools.dir\src\File.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\src\File.cpp || cmake_object_order_depends_target_ORGTools
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
+  INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
+  OBJECT_DIR = CMakeFiles\ORGTools.dir
+  OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
+  TARGET_PDB = ..\..\..\bin\ORGTools.pdb
+
+build CMakeFiles\ORGTools.dir\libs\imgui\imgui.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\libs\imgui\imgui.cpp || cmake_object_order_depends_target_ORGTools
+  DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
   OBJECT_DIR = CMakeFiles\ORGTools.dir
   OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\libs\imgui
   TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
   TARGET_PDB = ..\..\..\bin\ORGTools.pdb
 
-build CMakeFiles\ORGTools.dir\libs\imgui\imgui_demo.cpp.obj: CXX_COMPILER__ORGTools_Debug ..\..\..\libs\imgui\imgui_demo.cpp || cmake_object_order_depends_target_ORGTools
+build CMakeFiles\ORGTools.dir\libs\imgui\imgui_demo.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\libs\imgui\imgui_demo.cpp || cmake_object_order_depends_target_ORGTools
   DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
   OBJECT_DIR = CMakeFiles\ORGTools.dir
   OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\libs\imgui
   TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
   TARGET_PDB = ..\..\..\bin\ORGTools.pdb
 
-build CMakeFiles\ORGTools.dir\libs\imgui\imgui_draw.cpp.obj: CXX_COMPILER__ORGTools_Debug ..\..\..\libs\imgui\imgui_draw.cpp || cmake_object_order_depends_target_ORGTools
+build CMakeFiles\ORGTools.dir\libs\imgui\imgui_draw.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\libs\imgui\imgui_draw.cpp || cmake_object_order_depends_target_ORGTools
   DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
   OBJECT_DIR = CMakeFiles\ORGTools.dir
   OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\libs\imgui
   TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
   TARGET_PDB = ..\..\..\bin\ORGTools.pdb
 
-build CMakeFiles\ORGTools.dir\libs\imgui\imgui_impl_glfw.cpp.obj: CXX_COMPILER__ORGTools_Debug ..\..\..\libs\imgui\imgui_impl_glfw.cpp || cmake_object_order_depends_target_ORGTools
+build CMakeFiles\ORGTools.dir\libs\imgui\imgui_impl_glfw.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\libs\imgui\imgui_impl_glfw.cpp || cmake_object_order_depends_target_ORGTools
   DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
   OBJECT_DIR = CMakeFiles\ORGTools.dir
   OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\libs\imgui
   TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
   TARGET_PDB = ..\..\..\bin\ORGTools.pdb
 
-build CMakeFiles\ORGTools.dir\libs\imgui\imgui_widgets.cpp.obj: CXX_COMPILER__ORGTools_Debug ..\..\..\libs\imgui\imgui_widgets.cpp || cmake_object_order_depends_target_ORGTools
+build CMakeFiles\ORGTools.dir\libs\imgui\imgui_widgets.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\libs\imgui\imgui_widgets.cpp || cmake_object_order_depends_target_ORGTools
   DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
   OBJECT_DIR = CMakeFiles\ORGTools.dir
   OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\libs\imgui
   TARGET_COMPILE_PDB = CMakeFiles\ORGTools.dir\
   TARGET_PDB = ..\..\..\bin\ORGTools.pdb
 
-build CMakeFiles\ORGTools.dir\libs\imgui\imgui_impl_opengl3.cpp.obj: CXX_COMPILER__ORGTools_Debug ..\..\..\libs\imgui\imgui_impl_opengl3.cpp || cmake_object_order_depends_target_ORGTools
+build CMakeFiles\ORGTools.dir\libs\imgui\imgui_impl_opengl3.cpp.obj: CXX_COMPILER__ORGTools_Release ..\..\..\libs\imgui\imgui_impl_opengl3.cpp || cmake_object_order_depends_target_ORGTools
   DEFINES = -DIMGUI_IMPL_OPENGL_LOADER_GLAD -D_CRT_SECURE_NO_WARNINGS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glad\include -I..\..\..\libs\nativefiledialog\src\include -I..\..\..\libs\glfw\include
   OBJECT_DIR = CMakeFiles\ORGTools.dir
   OBJECT_FILE_DIR = CMakeFiles\ORGTools.dir\libs\imgui
@@ -134,9 +161,9 @@ build CMakeFiles\ORGTools.dir\libs\imgui\imgui_impl_opengl3.cpp.obj: CXX_COMPILE
 #############################################
 # Link the executable ..\..\..\bin\ORGTools.exe
 
-build ..\..\..\bin\ORGTools.exe: CXX_EXECUTABLE_LINKER__ORGTools_Debug CMakeFiles\ORGTools.dir\src\Main.cpp.obj CMakeFiles\ORGTools.dir\src\WindowView.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_demo.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_draw.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_impl_glfw.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_widgets.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_impl_opengl3.cpp.obj | glad\glad.lib libs\nativefiledialog\nativefiledialog.lib glfw\src\glfw3.lib || glad\glad.lib glfw\src\glfw3.lib libs\nativefiledialog\nativefiledialog.lib
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows /ENTRY:mainCRTStartup
+build ..\..\..\bin\ORGTools.exe: CXX_EXECUTABLE_LINKER__ORGTools_Release CMakeFiles\ORGTools.dir\src\Main.cpp.obj CMakeFiles\ORGTools.dir\src\WindowView.cpp.obj CMakeFiles\ORGTools.dir\src\ORGCopy.cpp.obj CMakeFiles\ORGTools.dir\src\SharedUtil.cpp.obj CMakeFiles\ORGTools.dir\src\File.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_demo.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_draw.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_impl_glfw.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_widgets.cpp.obj CMakeFiles\ORGTools.dir\libs\imgui\imgui_impl_opengl3.cpp.obj | glad\glad.lib libs\nativefiledialog\nativefiledialog.lib glfw\src\glfw3.lib || glad\glad.lib glfw\src\glfw3.lib libs\nativefiledialog\nativefiledialog.lib
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
+  LINK_FLAGS = /machine:x64 /INCREMENTAL:NO /subsystem:windows /ENTRY:mainCRTStartup
   LINK_LIBRARIES = glad\glad.lib  libs\nativefiledialog\nativefiledialog.lib  opengl32.lib  glfw\src\glfw3.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = CMakeFiles\ORGTools.dir
   POST_BUILD = cd .
@@ -172,16 +199,16 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 
 build cmake_object_order_depends_target_nativefiledialog: phony || libs\nativefiledialog\CMakeFiles\nativefiledialog.dir
 
-build libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src\nfd_common.c.obj: C_COMPILER__nativefiledialog_Debug ..\..\..\libs\nativefiledialog\src\nfd_common.c || cmake_object_order_depends_target_nativefiledialog
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+build libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src\nfd_common.c.obj: C_COMPILER__nativefiledialog_Release ..\..\..\libs\nativefiledialog\src\nfd_common.c || cmake_object_order_depends_target_nativefiledialog
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\nativefiledialog\src\include
   OBJECT_DIR = libs\nativefiledialog\CMakeFiles\nativefiledialog.dir
   OBJECT_FILE_DIR = libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src
   TARGET_COMPILE_PDB = libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\nativefiledialog.pdb
   TARGET_PDB = libs\nativefiledialog\nativefiledialog.pdb
 
-build libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src\nfd_win.cpp.obj: CXX_COMPILER__nativefiledialog_Debug ..\..\..\libs\nativefiledialog\src\nfd_win.cpp || cmake_object_order_depends_target_nativefiledialog
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+build libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src\nfd_win.cpp.obj: CXX_COMPILER__nativefiledialog_Release ..\..\..\libs\nativefiledialog\src\nfd_win.cpp || cmake_object_order_depends_target_nativefiledialog
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\nativefiledialog\src\include
   OBJECT_DIR = libs\nativefiledialog\CMakeFiles\nativefiledialog.dir
   OBJECT_FILE_DIR = libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src
@@ -196,8 +223,8 @@ build libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src\nfd_win.cpp.obj:
 #############################################
 # Link the static library libs\nativefiledialog\nativefiledialog.lib
 
-build libs\nativefiledialog\nativefiledialog.lib: CXX_STATIC_LIBRARY_LINKER__nativefiledialog_Debug libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src\nfd_common.c.obj libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src\nfd_win.cpp.obj
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+build libs\nativefiledialog\nativefiledialog.lib: CXX_STATIC_LIBRARY_LINKER__nativefiledialog_Release libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src\nfd_common.c.obj libs\nativefiledialog\CMakeFiles\nativefiledialog.dir\src\nfd_win.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = libs\nativefiledialog\CMakeFiles\nativefiledialog.dir
   POST_BUILD = cd .
@@ -243,8 +270,8 @@ build libs\nativefiledialog\rebuild_cache: phony libs\nativefiledialog\CMakeFile
 
 build cmake_object_order_depends_target_glad: phony || glad\CMakeFiles\glad.dir
 
-build glad\CMakeFiles\glad.dir\src\glad.c.obj: C_COMPILER__glad_Debug ..\..\..\libs\glad\src\glad.c || cmake_object_order_depends_target_glad
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+build glad\CMakeFiles\glad.dir\src\glad.c.obj: C_COMPILER__glad_Release ..\..\..\libs\glad\src\glad.c || cmake_object_order_depends_target_glad
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glad\include
   OBJECT_DIR = glad\CMakeFiles\glad.dir
   OBJECT_FILE_DIR = glad\CMakeFiles\glad.dir\src
@@ -259,8 +286,8 @@ build glad\CMakeFiles\glad.dir\src\glad.c.obj: C_COMPILER__glad_Debug ..\..\..\l
 #############################################
 # Link the static library glad\glad.lib
 
-build glad\glad.lib: C_STATIC_LIBRARY_LINKER__glad_Debug glad\CMakeFiles\glad.dir\src\glad.c.obj
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+build glad\glad.lib: C_STATIC_LIBRARY_LINKER__glad_Release glad\CMakeFiles\glad.dir\src\glad.c.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = glad\CMakeFiles\glad.dir
   POST_BUILD = cd .
@@ -346,135 +373,135 @@ build glfw\src\rebuild_cache: phony glfw\src\CMakeFiles\rebuild_cache.util
 
 build cmake_object_order_depends_target_glfw: phony || glfw\src\CMakeFiles\glfw.dir
 
-build glfw\src\CMakeFiles\glfw.dir\context.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\context.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\context.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\context.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\init.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\init.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\init.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\init.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\input.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\input.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\input.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\input.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\monitor.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\monitor.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\monitor.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\monitor.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\vulkan.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\vulkan.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\vulkan.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\vulkan.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\window.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\window.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\window.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\window.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\win32_init.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\win32_init.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\win32_init.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\win32_init.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\win32_joystick.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\win32_joystick.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\win32_joystick.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\win32_joystick.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\win32_monitor.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\win32_monitor.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\win32_monitor.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\win32_monitor.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\win32_time.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\win32_time.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\win32_time.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\win32_time.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\win32_thread.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\win32_thread.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\win32_thread.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\win32_thread.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\win32_window.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\win32_window.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\win32_window.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\win32_window.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\wgl_context.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\wgl_context.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\wgl_context.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\wgl_context.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\egl_context.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\egl_context.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\egl_context.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\egl_context.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
   TARGET_COMPILE_PDB = glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_PDB = glfw\src\glfw3.pdb
 
-build glfw\src\CMakeFiles\glfw.dir\osmesa_context.c.obj: C_COMPILER__glfw_Debug ..\..\..\libs\glfw\src\osmesa_context.c || cmake_object_order_depends_target_glfw
+build glfw\src\CMakeFiles\glfw.dir\osmesa_context.c.obj: C_COMPILER__glfw_Release ..\..\..\libs\glfw\src\osmesa_context.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   INCLUDES = -I..\..\..\libs\glfw\include -I..\..\..\libs\glfw\src -Iglfw\src
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = glfw\src\CMakeFiles\glfw.dir
@@ -489,8 +516,8 @@ build glfw\src\CMakeFiles\glfw.dir\osmesa_context.c.obj: C_COMPILER__glfw_Debug 
 #############################################
 # Link the static library glfw\src\glfw3.lib
 
-build glfw\src\glfw3.lib: C_STATIC_LIBRARY_LINKER__glfw_Debug glfw\src\CMakeFiles\glfw.dir\context.c.obj glfw\src\CMakeFiles\glfw.dir\init.c.obj glfw\src\CMakeFiles\glfw.dir\input.c.obj glfw\src\CMakeFiles\glfw.dir\monitor.c.obj glfw\src\CMakeFiles\glfw.dir\vulkan.c.obj glfw\src\CMakeFiles\glfw.dir\window.c.obj glfw\src\CMakeFiles\glfw.dir\win32_init.c.obj glfw\src\CMakeFiles\glfw.dir\win32_joystick.c.obj glfw\src\CMakeFiles\glfw.dir\win32_monitor.c.obj glfw\src\CMakeFiles\glfw.dir\win32_time.c.obj glfw\src\CMakeFiles\glfw.dir\win32_thread.c.obj glfw\src\CMakeFiles\glfw.dir\win32_window.c.obj glfw\src\CMakeFiles\glfw.dir\wgl_context.c.obj glfw\src\CMakeFiles\glfw.dir\egl_context.c.obj glfw\src\CMakeFiles\glfw.dir\osmesa_context.c.obj
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+build glfw\src\glfw3.lib: C_STATIC_LIBRARY_LINKER__glfw_Release glfw\src\CMakeFiles\glfw.dir\context.c.obj glfw\src\CMakeFiles\glfw.dir\init.c.obj glfw\src\CMakeFiles\glfw.dir\input.c.obj glfw\src\CMakeFiles\glfw.dir\monitor.c.obj glfw\src\CMakeFiles\glfw.dir\vulkan.c.obj glfw\src\CMakeFiles\glfw.dir\window.c.obj glfw\src\CMakeFiles\glfw.dir\win32_init.c.obj glfw\src\CMakeFiles\glfw.dir\win32_joystick.c.obj glfw\src\CMakeFiles\glfw.dir\win32_monitor.c.obj glfw\src\CMakeFiles\glfw.dir\win32_time.c.obj glfw\src\CMakeFiles\glfw.dir\win32_thread.c.obj glfw\src\CMakeFiles\glfw.dir\win32_window.c.obj glfw\src\CMakeFiles\glfw.dir\wgl_context.c.obj glfw\src\CMakeFiles\glfw.dir\egl_context.c.obj glfw\src\CMakeFiles\glfw.dir\osmesa_context.c.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /MD /O2 /Ob2 /DNDEBUG
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = glfw\src\CMakeFiles\glfw.dir
   POST_BUILD = cd .
@@ -574,14 +601,14 @@ build libs\nativefiledialog\all: phony libs\nativefiledialog\nativefiledialog.li
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\libs\glad\CMakeLists.txt ..\..\..\libs\glfw\CMakeLists.txt ..\..\..\libs\glfw\src\CMakeLists.txt ..\..\..\libs\glfw\src\glfw3.pc.in ..\..\..\libs\glfw\src\glfw3Config.cmake.in ..\..\..\libs\glfw\src\glfw_config.h.in ..\..\..\libs\nativefiledialog\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCCompiler.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCCompilerABI.c C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCXXCompiler.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCXXCompilerABI.cpp C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCompilerIdDetection.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDependentOption.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCXXCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCompileFeatures.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerABI.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerId.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineRCCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeFindBinUtils.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeParseImplicitIncludeInfo.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeParseImplicitLinkInfo.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeRCCompiler.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystem.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeTestCCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeTestCXXCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeTestCompilerCommon.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeTestRCCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckIncludeFile.c.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\ADSP-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\ARMCC-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\ARMClang-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\AppleClang-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Borland-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Bruce-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompilerInternal.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Compaq-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Cray-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Embarcadero-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Fujitsu-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\GHS-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\GNU-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\HP-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\HP-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IAR-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Intel-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IntelClang-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IntelDPCPP-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\NVIDIA-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\PGI-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\PathScale-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\SCO-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\SDCC-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\SunPro-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\TI-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Watcom-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\XL-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\XL-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\XLClang-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\zOS-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindOpenGL.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPkgConfig.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindThreads.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\GNUInstallDirs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Internal\FeatureTesting.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-Determine-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.19.20122902-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\libs\glad\CMakeLists.txt ..\..\..\libs\glfw\CMakeLists.txt ..\..\..\libs\glfw\src\CMakeLists.txt ..\..\..\libs\glfw\src\glfw3.pc.in ..\..\..\libs\glfw\src\glfw3Config.cmake.in ..\..\..\libs\glfw\src\glfw_config.h.in ..\..\..\libs\nativefiledialog\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDependentOption.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindOpenGL.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPkgConfig.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindThreads.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\GNUInstallDirs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.19.20122902-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\..\..\CMakeLists.txt ..\..\..\libs\glad\CMakeLists.txt ..\..\..\libs\glfw\CMakeLists.txt ..\..\..\libs\glfw\src\CMakeLists.txt ..\..\..\libs\glfw\src\glfw3.pc.in ..\..\..\libs\glfw\src\glfw3Config.cmake.in ..\..\..\libs\glfw\src\glfw_config.h.in ..\..\..\libs\nativefiledialog\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCCompiler.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCCompilerABI.c C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCXXCompiler.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCXXCompilerABI.cpp C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCompilerIdDetection.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDependentOption.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCXXCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCompileFeatures.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerABI.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineCompilerId.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineRCCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDetermineSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeFindBinUtils.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeParseImplicitIncludeInfo.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeParseImplicitLinkInfo.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeRCCompiler.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystem.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeTestCCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeTestCXXCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeTestCompilerCommon.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeTestRCCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckIncludeFile.c.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\ADSP-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\ARMCC-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\ARMClang-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\AppleClang-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Borland-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Bruce-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Clang-DetermineCompilerInternal.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Compaq-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Cray-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Embarcadero-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Fujitsu-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\GHS-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\GNU-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\HP-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\HP-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IAR-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Intel-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IntelClang-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\IntelDPCPP-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\NVIDIA-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\PGI-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\PathScale-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\SCO-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\SDCC-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\SunPro-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\TI-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\Watcom-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\XL-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\XL-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\XLClang-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\zOS-C-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindOpenGL.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPkgConfig.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindThreads.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\GNUInstallDirs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Internal\FeatureTesting.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-Determine-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.19.20122902-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeSystem.cmake: phony
+build ..\..\..\CMakeLists.txt ..\..\..\libs\glad\CMakeLists.txt ..\..\..\libs\glfw\CMakeLists.txt ..\..\..\libs\glfw\src\CMakeLists.txt ..\..\..\libs\glfw\src\glfw3.pc.in ..\..\..\libs\glfw\src\glfw3Config.cmake.in ..\..\..\libs\glfw\src\glfw_config.h.in ..\..\..\libs\nativefiledialog\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\BasicConfigVersion-SameMajorVersion.cmake.in C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeDependentOption.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckCSourceCompiles.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckIncludeFile.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\CheckLibraryExists.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindOpenGL.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindPkgConfig.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\FindThreads.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\GNUInstallDirs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Internal\CheckSourceCompiles.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.19\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.19.20122902-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.19.20122902-MSVC_2\CMakeSystem.cmake: phony
 
 
 #############################################

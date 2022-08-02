@@ -7,7 +7,7 @@
 
 # =============================================================================
 # Project: ORGTools
-# Configurations: Debug
+# Configurations: Release
 # =============================================================================
 # =============================================================================
 
@@ -28,7 +28,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__ORGTools_Debug
+rule CXX_COMPILER__ORGTools_Release
   deps = msvc
   command = C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.299\bin\Hostx64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
@@ -37,7 +37,7 @@ rule CXX_COMPILER__ORGTools_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__ORGTools_Debug
+rule CXX_EXECUTABLE_LINKER__ORGTools_Release
   command = cmd.exe /C "$PRE_LINK && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x64\mt.exe --manifests $MANIFESTS -- C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.299\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0 $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -46,7 +46,7 @@ rule CXX_EXECUTABLE_LINKER__ORGTools_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__nativefiledialog_Debug
+rule C_COMPILER__nativefiledialog_Release
   deps = msvc
   command = C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.299\bin\Hostx64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
@@ -55,7 +55,7 @@ rule C_COMPILER__nativefiledialog_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__nativefiledialog_Debug
+rule CXX_COMPILER__nativefiledialog_Release
   deps = msvc
   command = C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.299\bin\Hostx64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
@@ -64,7 +64,7 @@ rule CXX_COMPILER__nativefiledialog_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__nativefiledialog_Debug
+rule CXX_STATIC_LIBRARY_LINKER__nativefiledialog_Release
   command = cmd.exe /C "$PRE_LINK && C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.299\bin\Hostx64\x64\lib.exe /nologo $LINK_FLAGS /out:$TARGET_FILE $in  && $POST_BUILD"
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -73,7 +73,7 @@ rule CXX_STATIC_LIBRARY_LINKER__nativefiledialog_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__glad_Debug
+rule C_COMPILER__glad_Release
   deps = msvc
   command = C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.299\bin\Hostx64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
@@ -82,7 +82,7 @@ rule C_COMPILER__glad_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__glad_Debug
+rule C_STATIC_LIBRARY_LINKER__glad_Release
   command = cmd.exe /C "$PRE_LINK && C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.299\bin\Hostx64\x64\lib.exe /nologo $LINK_FLAGS /out:$TARGET_FILE $in  && $POST_BUILD"
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -91,7 +91,7 @@ rule C_STATIC_LIBRARY_LINKER__glad_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__glfw_Debug
+rule C_COMPILER__glfw_Release
   deps = msvc
   command = C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.299\bin\Hostx64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
@@ -100,7 +100,7 @@ rule C_COMPILER__glfw_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__glfw_Debug
+rule C_STATIC_LIBRARY_LINKER__glfw_Release
   command = cmd.exe /C "$PRE_LINK && C:\PROGRA~2\MICROS~3\2019\COMMUN~1\VC\Tools\MSVC\1428~1.299\bin\Hostx64\x64\lib.exe /nologo $LINK_FLAGS /out:$TARGET_FILE $in  && $POST_BUILD"
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT

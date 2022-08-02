@@ -15,8 +15,15 @@ add_executable(ORGTools WIN32
 
 
 	"src/Main.cpp"
+	"src/Main.h"
 	"src/WindowView.cpp"
 	"src/WindowView.h"
+	"src/ORGCopy.cpp"
+	"src/ORGCopy.h"
+	"src/SharedUtil.cpp"
+	"src/SharedUtil.h"
+	"src/File.cpp"
+	"src/File.h"
 
 	"libs/imgui/imconfig.h"
 	"libs/imgui/imgui.cpp"
@@ -33,10 +40,10 @@ add_executable(ORGTools WIN32
 )
 
 set_target_properties(ORGTools PROPERTIES
-	C_STANDARD 90
+	C_STANDARD 11#90
 	C_STANDARD_REQUIRED ON
 	C_EXTENSIONS OFF
-	CXX_STANDARD 98
+	CXX_STANDARD 11#98
 	CXX_STANDARD_REQUIRED ON
 	CXX_EXTENSIONS OFF
 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin"
