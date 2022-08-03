@@ -1,3 +1,0 @@
-C:/Users/Edward Stuckey/Documents/GitHub/ORGTools/Depricated/libs/glad/out/build/x64-Debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_0bf82.dir
-C:/Users/Edward Stuckey/Documents/GitHub/ORGTools/Depricated/libs/glad/out/build/x64-Debug/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
-C:/Users/Edward Stuckey/Documents/GitHub/ORGTools/Depricated/libs/glad/out/build/x64-Debug/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir

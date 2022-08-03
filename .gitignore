@@ -401,6 +401,6 @@ FodyWeavers.xsd
 
 #other stuff
 /build
-/out
+out/
 
 

@@ -20,6 +20,8 @@ add_executable(ORGTools WIN32
 	"src/WindowView.h"
 	"src/ORGCopy.cpp"
 	"src/ORGCopy.h"
+	"src/MIDI2ORG.cpp"
+	"src/MIDI2ORG.h"
 	"src/SharedUtil.cpp"
 	"src/SharedUtil.h"
 	"src/File.cpp"
@@ -48,6 +50,7 @@ set_target_properties(ORGTools PROPERTIES
 	CXX_EXTENSIONS OFF
 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin"
 )
+
 
 target_link_libraries(ORGTools PRIVATE ${CMAKE_DL_LIBS})
 
@@ -148,3 +151,10 @@ else()
 	add_subdirectory("libs/glfw" "glfw" EXCLUDE_FROM_ALL)
 	target_link_libraries(ORGTools PRIVATE glfw)
 endif()
+
+
+
+#add the midi parsing library
+message(STATUS "adding midifile")
+add_subdirectory("libs/MIDIParse")
+target_link_libraries(ORGTools PRIVATE libParser)

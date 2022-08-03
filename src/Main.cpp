@@ -9,6 +9,7 @@
 #include <sstream>
 #include <vector>
 
+#include "Main.h"
 #include "File.h"
 #include "WindowView.h"
 

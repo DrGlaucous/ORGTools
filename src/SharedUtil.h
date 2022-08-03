@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include "Main.h"
 
 #define READ_LE16(p) ((p[1] << 8) | p[0]); p += 2
@@ -46,12 +47,18 @@ typedef struct NOTEDATA
 	unsigned char volume{};
 	unsigned char pan{};
 	unsigned char trackPrio{};//what track did this note come from? (used for track priority)
+	unsigned int eventParent{};//what note is this event tied to? (only used for volume and pan)
+	bool eventHasParent{};//not all event notes have parents
 
 }NOTEDATA;
 
 
 int gcd(int a, int b);
 int LeastCommonMultiple(int num1, int num2);
+int gcdArray(std::vector<int> processArray);
+bool isPower(int entry, int powerOf);
+int ValueMap(float val1Min, float val1Max, float val2Min, float val2Max, float input);
+
 void StretchSong(unsigned char* memfile, char bpmStretch, char dotStretch);
 bool VerifyFile(const char* path);
 

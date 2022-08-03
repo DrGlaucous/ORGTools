@@ -7,6 +7,7 @@
 #include <sstream>
 #include <vector>
 
+#include "Main.h"
 #include "SharedUtil.h"
 #include "ORGCopy.h"
 #include "File.h"
@@ -162,7 +163,12 @@ bool CopyOrgData(std::string Path1, std::string Path2, unsigned int TrackCopy, u
 
 
 
-
+	//rundown on how MASH works (TL;DR edition)
+	//copy track 'from' to vector 0 and copy track 'to' to vector 1
+	//jam both bits of track data into vector 2
+	//sort vector 2 by x values
+	//clean out any overlapping x values
+	//done
 
 	//if we are combining tracks, we have to do things a little differently
 	if (MASH)
@@ -237,11 +243,14 @@ bool CopyOrgData(std::string Path1, std::string Path2, unsigned int TrackCopy, u
 				TrackNotes[i].push_back(BufferNote);//append vector
 			}
 
+			//now that every entry in the vector has been made, we can just go back through and adjust the values
 			//y
 			for (int j = 0; j < orgs[i].tracks[TracksCP[i]].note_num; ++j)
 			{
+				//copy and advance pointer
 				(TrackNotes[i].begin() + j)->y = memfile[i][0];
 				memfile[i] += 1;
+
 			}
 			//length
 			for (int j = 0; j < orgs[i].tracks[TracksCP[i]].note_num; ++j)
@@ -261,6 +270,34 @@ bool CopyOrgData(std::string Path1, std::string Path2, unsigned int TrackCopy, u
 				(TrackNotes[i].begin() + j)->pan = memfile[i][0];
 				memfile[i] += 1;
 			}
+
+			//tie event notes to parents
+			for (int j = 0; j < orgs[i].tracks[TracksCP[i]].note_num; ++j)
+			{ 
+				//find event notes
+				if ((TrackNotes[i].begin() + j)->y == 0xFF)
+				{
+					//go backwards until we find a note whose length value extends over this one
+					for (int backJ = j; backJ >= 0; --backJ)
+					{
+						//if note is NOT an event AND its x+length is >= to the current event note
+						if ((TrackNotes[i].begin() + backJ)->y != 0xFF &&
+							(TrackNotes[i].begin() + backJ)->length +
+							(TrackNotes[i].begin() + backJ)->x >=
+							(TrackNotes[i].begin() + j)->x
+							)
+						{
+							//keep track of note parent
+							(TrackNotes[i].begin() + j)->eventHasParent = true;
+							(TrackNotes[i].begin() + j)->eventParent = (TrackNotes[i].begin() + backJ)->x;
+						}
+
+
+					}
+
+				}
+			}
+
 
 
 		}
@@ -311,12 +348,59 @@ bool CopyOrgData(std::string Path1, std::string Path2, unsigned int TrackCopy, u
 			//if current note start value is before the last note has ended
 			if ((TrackNotes[2].begin() + i)->x < ((TrackNotes[2].begin() + i - 1)->x + (TrackNotes[2].begin() + i - 1)->length))
 			{
+
+				//any event notes need to be dealt with.
+				//they need to be linked with their parent note so the program can tell which event notes need to be retained
+				//otherwise we will get dynamics that don't match the original track (this is done in the logic above)
+				if ((TrackNotes[2].begin() + i)->y == 0xFF &&
+					(TrackNotes[2].begin() + i)->eventHasParent == true //event notes without parents will be maintained and copied per normal (should I automatically make them lowest-priority, though?)
+					)
+				{
+
+					bool foundParentNote = false;
+					//run back through notes until we find one that matches the parent 
+					for (int reChecki = i; reChecki >= 0; --reChecki)
+					{
+
+						//if note is NOT an event AND it's start value is the same as our event's parent AND it came from the same original track
+						//since this note has already been processed, all of its events are guaranteed safety
+						//even if the priority track has events in the way of non-prio notes, those will be deleted in favor of actual notes
+						if ((TrackNotes[2].begin() + reChecki)->y != 0xFF &&
+							(TrackNotes[2].begin() + reChecki)->x == (TrackNotes[2].begin() + i)->eventParent &&
+							(TrackNotes[2].begin() + reChecki)->trackPrio == (TrackNotes[2].begin() + i)->trackPrio
+
+							)
+						{
+							//event will not be deleted
+							foundParentNote = true;
+							break;
+
+						}
+
+
+					}
+
+					//delete event if no parent found
+					if (foundParentNote == false)
+					{
+						TrackNotes[2].erase((TrackNotes[2].begin() + i));//erase the current note
+					}
+
+
+
+
+				}
+
+
 				//if the priority number of the current note is less than that of the previous note
-				if ((TrackNotes[2].begin() + i)->trackPrio < (TrackNotes[2].begin() + i - 1)->trackPrio)
+				//note came from track 0 and other came from track 1
+				else if ((TrackNotes[2].begin() + i)->trackPrio < (TrackNotes[2].begin() + i - 1)->trackPrio)
 				{
 					//changes what note is erased based on what the user entered (1 gives top prio to the smaller, 2 gives top prio to the bigger)
 					//this could probably be optimized. oh, well.
-					if (PrioFile == 2)
+					if (PrioFile == 2 ||
+						((TrackNotes[2].begin() + i)->y == 0xFF)//always puts non-note orphan events in the non-priority state
+						)
 					{
 						TrackNotes[2].erase((TrackNotes[2].begin() + i));//erase the current note
 					}
@@ -325,10 +409,15 @@ bool CopyOrgData(std::string Path1, std::string Path2, unsigned int TrackCopy, u
 						TrackNotes[2].erase((TrackNotes[2].begin() + i - 1));//erase the other note
 					}
 
+					//start-overs will only happen in the case of normal notes
+					i = 1;//start over (not starting over may give us skip-over errors)
+
 				}
-				else//the current priority number is bigger
+				else//the current priority number is bigger (opposite the logic above)
 				{
-					if (PrioFile == 2)
+					if (PrioFile == 2 ||
+						!((TrackNotes[2].begin() + i)->y == 0xFF)//always puts non-note orphan events in the non-priority state
+						)
 					{
 						TrackNotes[2].erase((TrackNotes[2].begin() + i - 1));//erase the other note
 					}
@@ -337,11 +426,10 @@ bool CopyOrgData(std::string Path1, std::string Path2, unsigned int TrackCopy, u
 						TrackNotes[2].erase((TrackNotes[2].begin() + i));//erase the current note
 					}
 
-
+					i = 1;//start over (not starting over may give us skip-over errors)
 
 				}
 
-				i = 1;//start over (not starting over may give us skip-over errors)
 			}
 
 

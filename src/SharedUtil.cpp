@@ -32,7 +32,66 @@ int LeastCommonMultiple(int num1, int num2)
 	return (num1 * num2) / gcd(num1, num2);
 
 }
+int gcdArray(std::vector<int> processArray)
+{
+	//catch any 0 length arrays sent our way
+	if (processArray.size() == 0)
+	{
+		return 1;//you can't devide by 0, now can you?
+	}
 
+	int result = *processArray.begin();
+	for (int i = 0; i < processArray.size(); ++i)
+	{
+		result = gcd(*(processArray.begin() + i), result);
+
+		if (result == 1)
+		{
+			return result;
+		}
+	}
+	return result;
+}
+bool isPower(int entry, int powerOf)
+{
+	int iterateI = 0;
+
+	if (powerOf == 0)
+	{
+		if (entry == 0)
+			return true;
+		else
+			return false;
+	}
+
+	while (1)
+	{
+		if (pow(powerOf, iterateI) < entry)
+		{
+			iterateI += 1;
+		}
+		else if (pow(powerOf, iterateI) > entry)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
+
+
+
+	}
+
+}
+int ValueMap(float val1Min, float val1Max, float val2Min, float val2Max, float input)
+{
+
+	float MapBuffer = val2Min + ((val2Max - val2Min) / (val1Max - val1Min)) * (input - val1Min);
+	return (int)floor(MapBuffer + 0.5);//round to nearest integer
+
+}
 
 //change the timing of a song, give it the pointer to the file and the stretch values
 void StretchSong(unsigned char* memfile, char bpmStretch, char dotStretch)
@@ -171,6 +230,37 @@ bool VerifyFile(const char* path)
 }
 
 
+
+//char passMid[5] = "MThd";//midi header
+#define PASS_MIDI "MThd"
+
+//tells if the file is an MIDI or not
+int VerifyFile_MIDI(const char* path)
+{
+
+
+
+	FILE* file = fopen(path, "rb");
+
+	if (file == NULL)
+	{
+		return -1;//file does not exist
+	}
+
+	char header[4];
+
+	fread(header, 1, 4, file);//get header
+
+	if (memcmp(header, PASS_MIDI, 4) != 0)//see if the header matches midi header
+	{
+		fclose(file);
+		return 1;//file does not have MIDI header
+	}
+
+	fclose(file);
+
+	return 0;//success
+}
 
 
 

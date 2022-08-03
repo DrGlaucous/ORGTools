@@ -626,7 +626,74 @@ void ShowOrgCopy(bool* p_open)
 
 }
 
+void ShowMIDI2ORG(bool* p_open)
+{
 
+	//window layout
+	//FileSelect
+	//(is valid midi?)
+	//options:
+
+
+
+
+
+	//TODO: revise where the menu starts when you click on it
+	ImVec2 menuSize(ImGui::GetIO().DisplaySize.x * 0.5f, ImGui::GetIO().DisplaySize.y * 0.5f);
+	ImVec2 center((ImGui::GetIO().DisplaySize.x * 0.5f) - (menuSize.x * 0.5f),
+		(ImGui::GetIO().DisplaySize.y * 0.5f) - (menuSize.y * 0.5f)
+	);
+	ImGui::SetNextWindowPos(center, ImGuiCond_FirstUseEver);
+	ImGui::SetNextWindowSize(ImVec2(550, 680), ImGuiCond_FirstUseEver);
+
+	//give it an X button
+	if (!ImGui::Begin("ORGCopy", p_open))
+	{
+		ImGui::End();
+		return;
+	}
+
+
+	ImGui::Text("MIDI to convert:");
+	ImGui::PushID(1);
+	ImGui::InputTextWithHint("", "enter file path", OrgCopyParams.track1Path, IM_ARRAYSIZE(OrgCopyParams.track1Path));
+	ImGui::PopID();
+
+
+	ImGui::PushID(1);//unique ID (buttons with the same name need this)
+	if (ImGui::Button("Browse"))
+	{
+		char* destination = OpenFile();
+		if (destination != NULL)
+			strcpy(OrgCopyParams.track1Path, destination);
+	}
+	ImGui::PopID();
+	ImGui::SameLine();
+	//0-1 Red, Green, Blue, Alpha
+	if (orgs[0].IsOrg)
+	{
+		ImGui::TextColored(ImVec4(0, 1, 0, 1), "ORG is GOOD");
+		ImGui::SameLine();
+		HelpMarker("The file header matches that of an ORG file.\nTotal notes: %d\nWait time: %d\nBeats Per Measure: %d\nNotes Per Beat: %d",
+			orgs[0].totalNotes, orgs[0].wait, orgs[0].bar, orgs[0].dot);
+	}
+	else
+	{
+		ImGui::TextColored(ImVec4(1, 0, 0, 1), "ORG Not GOOD");//will turn colors based on if the file is detected as an org or not
+		ImGui::SameLine();
+		HelpMarker("ORGCopy did not recognize this file's header as ORG.\nAttempting operations on this file may corrupt it or crash the program!");
+	}
+	ImGui::Separator();
+
+
+
+
+
+
+
+
+
+}
 
 
 void ShowAppearanceWindow(bool* p_open)
