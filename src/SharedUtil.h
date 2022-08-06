@@ -61,6 +61,7 @@ int ValueMap(float val1Min, float val1Max, float val2Min, float val2Max, float i
 
 void StretchSong(unsigned char* memfile, char bpmStretch, char dotStretch);
 bool VerifyFile(const char* path);
+int VerifyFile_MIDI(const char* path);
 
 
 

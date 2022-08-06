@@ -18,15 +18,22 @@
 
 #include "Main.h"
 #include "ORGCopy.h"
+
+#define TEXT_RED ImVec4(0.7f, 0, 0, 1)
+#define TEXT_GREEN ImVec4(0, 0.7f, 0, 1)
+#define TEXT_LIGHT_GREEN ImVec4(0, 1, 0, 1)
+#define TEXT_YELLOW ImVec4(0.7f, 0.7f, 0, 1)
+
 //save options that are configured by the top bar (such as what menu to show)
 typedef struct TopBarOPTIONS
 {
-	bool ShowOrgCopy{};
-	bool ShowMIDI2ORG{};
+	//bool ShowOrgCopy{};
+	//bool ShowMIDI2ORG{};
 	bool ShowStyleEditor{};
 
-
+	#ifdef DEBUG_MODE
 	bool ShowDemoWindow{};
+	#endif
 
 } TopBarOPTIONS;
 

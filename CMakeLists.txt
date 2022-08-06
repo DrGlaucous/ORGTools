@@ -13,7 +13,7 @@ add_subdirectory(libs/nativefiledialog)
 
 add_executable(ORGTools WIN32
 
-
+	"icon.rc"
 	"src/Main.cpp"
 	"src/Main.h"
 	"src/WindowView.cpp"

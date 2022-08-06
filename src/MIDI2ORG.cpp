@@ -19,6 +19,7 @@ namespace fs = std::filesystem;
 #endif
 
 #include "Main.h"
+#include "WindowView.h"//needed to update the window while MIDI2ORG is running
 #include "SharedUtil.h"
 #include "MIDI2ORG.h"
 #include "File.h"
@@ -27,7 +28,11 @@ namespace fs = std::filesystem;
 
 //already defined elsewhere
 TRACKINFO Mtracks[MAXTRACK];
-//ORGFILES orgs[2];
+//ORGFILES orgs[2]; (not actually needed)
+
+MIDI2ORGOPTIONS MidiConvertParams{};
+
+
 
 static unsigned short gResolution{};
 
@@ -59,6 +64,59 @@ bool SortFunctionEvT(MIDI_NOTEDATA one, MIDI_NOTEDATA two)
 }
 
 
+//keep updating the menu while processing
+void ExportStatus(const char* desc, ...)
+{
+
+	//extra arguments in the function
+	va_list args;
+	va_start(args, desc);//pair arguments with this string
+
+	//we are using this huge constant size buffer to see how big to make our terminal text string
+	//since we can't just compute the size of va_list without poping its values
+	char FormatBuffer[PATH_LENGTH]{};
+
+	int w = vsnprintf(FormatBuffer, PATH_LENGTH, desc, args);
+
+	va_end(args);
+
+	//we have nothing for if the condition is NULL...
+
+	//figure out where to put the null end terminator
+	if (w == -1 || w >= PATH_LENGTH)
+		w = PATH_LENGTH - 1;
+	FormatBuffer[w] = 0;
+
+
+
+
+	//we need to deterine how big this string is going to be with the va_list args
+	int BufferSize = (strlen(FormatBuffer) + 1);
+
+	//no need for this anymore. we do the value baking in this function now
+	//MidiConvertParams.TerminalArgs = args;
+
+	//allocate a char array the size of the text we got and send the terminaltext pointer there.
+	MidiConvertParams.TerminalText = (char*)malloc(BufferSize);
+
+
+	if (MidiConvertParams.TerminalText != NULL)
+	{
+		//make allocated memory chunk all null terminator
+		memset(MidiConvertParams.TerminalText, 0, strlen(desc) + 1);
+
+		//copy our text to the buffer
+		strcpy(MidiConvertParams.TerminalText, FormatBuffer);
+	}
+
+
+
+	TopFunction();
+
+
+}
+
+
 bool ConvertMidi(MIDICONV inOptions)
 {
 
@@ -69,9 +127,14 @@ bool ConvertMidi(MIDICONV inOptions)
 	{
 		if (!(fs::create_directories(DirectoryPath.c_str())))
 		{
-			std::cout << "Error! Could not create directory:\n"
-				<< DirectoryPath.c_str()
-				<< std::endl;
+
+			ExportStatus("Error! Could not create directory:\n%d", DirectoryPath.c_str());
+
+			//std::cout << "Error! Could not create directory:\n"
+			//	<< DirectoryPath.c_str()
+			//	<< std::endl;
+
+
 			return false;
 		}
 	}
@@ -86,7 +149,8 @@ bool ConvertMidi(MIDICONV inOptions)
 	auto& Mtracks = MIDIFile.getTracks();
 	//channel
 
-	std::cout << "Track Count: " << header.getNTracks() << std::endl;
+	ExportStatus("Track Count: %d", header.getNTracks());
+	//std::cout << "Track Count: " << header.getNTracks() << std::endl;
 
 
 
@@ -108,7 +172,8 @@ bool ConvertMidi(MIDICONV inOptions)
 
 	gResolution = header.getDivision();//this may have 1 of 2 alternate resolution formats: time in 1/4 note, or something based on framerate (I have not accounted for the second format, and it may produce adverse results)
 
-	std::cout << "Resolution: " << gResolution << std::endl;
+	ExportStatus("Resolution:  %d", gResolution);
+	//std::cout << "Resolution: " << gResolution << std::endl;
 
 	int currTrack = 0;//use this to know what track we are looking at
 	for (const auto& track : Mtracks)//iterates through all tracks
@@ -152,12 +217,16 @@ bool ConvertMidi(MIDICONV inOptions)
 					PrepNote.TimeStart = AbsTime;
 					TrackData[PrepNote.Channel].push_back(PrepNote);//record the data to our vector
 
-					std::cout << "Loudness " << (int)PrepNote.Volume << std::endl;
-					std::cout << "Frequency " << (int)PrepNote.Pitch << std::endl;
-					std::cout << "Channel " << (int)PrepNote.Channel;
 
-					std::cout << "\t\t\tLength: " << PrepNote.TimeRelative
-						<< "\t\tABSLength: " << AbsTime << std::endl;
+					ExportStatus("Loudness: %d\nFrequency: %d\nChannel: %d\n\t\t\tLength: %d\n\t\tABSLength: %d",
+						(int)PrepNote.Volume, (int)PrepNote.Pitch, (int)PrepNote.Channel, PrepNote.TimeRelative, AbsTime);
+
+					//std::cout << "Loudness " << (int)PrepNote.Volume << std::endl;
+					//std::cout << "Frequency " << (int)PrepNote.Pitch << std::endl;
+					//std::cout << "Channel " << (int)PrepNote.Channel;
+
+					//std::cout << "\t\t\tLength: " << PrepNote.TimeRelative
+					//	<< "\t\tABSLength: " << AbsTime << std::endl;
 
 
 				}
@@ -172,17 +241,26 @@ bool ConvertMidi(MIDICONV inOptions)
 					PrepNote.TimeStart = AbsTime;
 					TrackData[PrepNote.Channel].push_back(PrepNote);//record the data to our vector
 
+					ExportStatus("\t\t\tLength: % d\n\t\tABSLength: % d",
+						PrepNote.TimeRelative, AbsTime
+						);
+					//std::cout << "\t\t\tLength: " << PrepNote.TimeRelative << std::endl;
+					//std::cout << "\t\t\tABSLength: " << AbsTime << std::endl;
 
-					std::cout << "\t\t\tLength: " << PrepNote.TimeRelative << std::endl;
-					std::cout << "\t\t\tABSLength: " << AbsTime << std::endl;
+
 				}
 				else
 				{
 					int TimeRelative = trackEvent.getDeltaTime().getData();
 					AbsTime += TimeRelative;
-					std::cout << "\t\t\t(MIDI) Length: " << TimeRelative
-						<< "\n\t\t\tABSLength: " << AbsTime
-						<< std::endl;
+
+					ExportStatus("\t\t\t(MIDI) Length: % d\n\t\tABSLength: % d",
+						TimeRelative, AbsTime
+						);
+
+					//std::cout << "\t\t\t(MIDI) Length: " << TimeRelative
+					//	<< "\n\t\t\tABSLength: " << AbsTime
+					//	<< std::endl;
 				}
 
 
@@ -199,19 +277,25 @@ bool ConvertMidi(MIDICONV inOptions)
 				{
 					//I may also want to put a boolean check in here so that this is not reset more than 1x, so the first time signature is the one that is always kept
 					BeatsPM = data[0];//if it is a time signature event, we already know that the first chunk of data will be the numerator, or BPM
-					std::cout << "\t\tTime signature event: Numerator = " << (int)BeatsPM << std::endl;
+					
+					ExportStatus("\t\tTime signature event: Numerator = %d", (int)BeatsPM);
+					//std::cout << "\t\tTime signature event: Numerator = " << (int)BeatsPM << std::endl;
 				}
 				else if (status == MidiType::MetaMessageStatus::SetTempo)
 				{
 					if (!TempoSet)
 					{
 						Tempo = 60000000 / ((0 << 24 | data[0] << 16) | (data[1] << 8) | data[2]);//tempo events only have 3 bits of data (in BIG_ENDIAN format), so the first bit needs to be filled with 0
-						std::cout << "\t\tTempo event: New Tempo = " << Tempo << std::endl;
 						TempoSet = true;
+						
+						ExportStatus("\t\tTempo event: New Tempo = %d", Tempo);
+						//std::cout << "\t\tTempo event: New Tempo = " << Tempo << std::endl;
+						
 					}
 					else
 					{
-						std::cout << "\t\tTempo event: Cannot change the tempo. Already set to " << Tempo << std::endl;
+						ExportStatus("\t\tTempo event: Cannot change the tempo. Already set to: %d", Tempo);
+						//std::cout << "\t\tTempo event: Cannot change the tempo. Already set to " << Tempo << std::endl;
 					}
 
 				}
@@ -219,17 +303,28 @@ bool ConvertMidi(MIDICONV inOptions)
 
 
 				//write out the event to the terminal
-				std::cout << "\t\tMeta event:" << std::endl
-					<< "\t\t\tStatus: 0x" << std::hex
-					<< ((MetaEvent*)event)->getStatus() << std::endl
-					<< "\t\t\tData: 0x";
+
+
+				ExportStatus("\t\tMeta event:\n\t\t\tStatus: 0x%x\n\t\t\tData: 0x", ((MetaEvent*)event)->getStatus());
+
+
+				//std::cout << "\t\tMeta event:" << std::endl
+				//	<< "\t\t\tStatus: 0x" << std::hex
+				//	<< ((MetaEvent*)event)->getStatus() << std::endl
+				//	<< "\t\t\tData: 0x";
 				for (int i{ 0 }; i < ((MetaEvent*)event)->getLength(); ++i) {
-					std::cout << (int)data[i] << '-';
+
+					ExportStatus("%x -", (int)data[i]);
+
+					//std::cout << (int)data[i] << '-';
 				}
 				if (!((MetaEvent*)event)->getLength()) {
-					std::cout << "0";
+
+					ExportStatus("0");
+
+					//std::cout << "0";
 				}
-				std::cout << std::dec << std::endl;
+				//std::cout << std::dec << std::endl;
 
 
 
@@ -239,9 +334,12 @@ bool ConvertMidi(MIDICONV inOptions)
 			{
 				int TimeRelative = trackEvent.getDeltaTime().getData();
 				AbsTime += TimeRelative;
-				std::cout << "\t\t\t(OTHER) Length: " << TimeRelative
-					<< "\n\t\t\tABSLength: " << AbsTime
-					<< std::endl;
+				
+				ExportStatus("\t\t\t(OTHER) Length: %d\n\t\t\tABSLength: %d", TimeRelative, AbsTime);
+				
+				//std::cout << "\t\t\t(OTHER) Length: " << TimeRelative
+				//	<< "\n\t\t\tABSLength: " << AbsTime
+				//	<< std::endl;
 			}
 
 
@@ -255,7 +353,10 @@ bool ConvertMidi(MIDICONV inOptions)
 
 			if (inOptions.SimplestNote > gResolution)
 			{
-				std::cout << "WARNING: Most Prescise Note is less than entered value: No reduction will happen." << std::endl;
+
+				ExportStatus("WARNING: Most Prescise Note is less than entered value: No reduction will happen.");
+
+				//std::cout << "WARNING: Most Prescise Note is less than entered value: No reduction will happen." << std::endl;
 			}
 			else
 			{
@@ -304,7 +405,11 @@ bool ConvertMidi(MIDICONV inOptions)
 			reductionRate = gcdArray(ArrayOfLength);
 			if (reductionRate > gResolution)//since our resolution is based on 1/4 notes, any shrinkage past this (like whole notes) will be stopped (it causes a devide by 0 error further down the code)
 				reductionRate = gResolution;
-			std::cout << "Auto-Shrinkable by: " << reductionRate << std::endl;//what space can we save?
+
+
+			ExportStatus("Auto-Shrinkable by: %d", reductionRate);
+			//std::cout << "Auto-Shrinkable by: " << reductionRate << std::endl;//what space can we save?
+
 		}
 
 
@@ -366,11 +471,14 @@ bool ConvertMidi(MIDICONV inOptions)
 
 		if (!(fs::is_directory(TrackSubfolder.c_str())))//checks to see if the directory exists, skips making it if this is true
 		{
+			//creates the sub-folder directory inside the parent
 			if (!(fs::create_directories(TrackSubfolder.c_str())))
 			{
-				std::cout << "Error! Could not create directory:\n"
-					<< TrackSubfolder.c_str()
-					<< std::endl;
+				ExportStatus("Error! Could not create directory:\n %s", TrackSubfolder.c_str());
+
+				//std::cout << "Error! Could not create directory:\n"
+				//	<< TrackSubfolder.c_str()
+				//	<< std::endl;
 				return false;
 			}
 		}
@@ -611,9 +719,12 @@ bool ConvertMidi(MIDICONV inOptions)
 
 			if (outFile == NULL)
 			{
-				std::cout << "Error! Could not create file:\n"
-					<< ORGPath.c_str()
-					<< std::endl;
+
+				ExportStatus("Error! Could not create file:\n %s", ORGPath.c_str());
+
+				//std::cout << "Error! Could not create file:\n"
+				//	<< ORGPath.c_str()
+				//	<< std::endl;
 				fclose(outFile);
 				return false;
 			}
@@ -693,7 +804,41 @@ bool ConvertMidi(MIDICONV inOptions)
 }
 
 
+void HandleMIDI2ORGBackend(void)
+{
+	//verify the file is a MIDI
+	if (strcmp(MidiConvertParams.PathOLD, MidiConvertParams.BackendOptions.Path))
+	{
+		//make paths the same
+		strcpy(MidiConvertParams.PathOLD, MidiConvertParams.BackendOptions.Path);
 
+		//re-verify file
+		MidiConvertParams.IsMIDI = VerifyFile_MIDI(MidiConvertParams.BackendOptions.Path);
+
+	}
+
+
+	if (MidiConvertParams.BeginCopy)
+	{
+		MidiConvertParams.BeginCopy = false;
+
+		MidiConvertParams.RunningCopy = true;
+
+		//actual conversion happens here (this function is boolean, but it doesn't actually return anything other than 0, so this reading isn't very helpful)
+		MidiConvertParams.Success = ConvertMidi(MidiConvertParams.BackendOptions);
+
+		MidiConvertParams.RunningCopy = false;
+		MidiConvertParams.FinishedCopy = true;
+
+
+	}
+
+
+
+
+
+
+}
 
 
 

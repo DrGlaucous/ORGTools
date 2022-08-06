@@ -3,11 +3,11 @@
     {
       "name": "x64-Debug",
       "generator": "Ninja",
-      "configurationType": "Debug",
+      "configurationType": "Release",
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
-      "cmakeCommandArgs": "-DPKG_MSVC_STATIC_RUNTIME=OFF -DPKG_CONFIG_STATIC_LIBS=OFF",
+      "cmakeCommandArgs": "-DPKG_MSVC_STATIC_RUNTIME=ON -DPKG_CONFIG_STATIC_LIBS=ON",
       "ctestCommandArgs": ""
     }
   ]
