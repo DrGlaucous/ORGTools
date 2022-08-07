@@ -75,7 +75,7 @@ typedef struct MIDI2ORGOPTIONS
 
 
 	//used to report feedback in the MIDI2ORG menu
-	char* TerminalText;
+	//char* TerminalText;
 	//va_list TerminalArgs;
 
 

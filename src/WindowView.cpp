@@ -43,6 +43,16 @@ float MonitorScaleAverage{};
 char* Directory1{};
 char* Directory2{};
 
+//I'm putting the millisecond stuff here because I want to keep all the glfw calls on the same page
+int MillisecondTicks{};
+int LastMillisecondTicks{};
+
+//terminal stuff
+char* TerminalLines[TERMINAL_MAX_BUFFER]{};
+bool SnapToBottom{};//set so we can lock and unlock scroll snapping to the bottom
+
+
+
 TopBarOPTIONS TabOptions{};
 //ORGCopyOPTIONS OrgCopySettings{}; //variable exists in OrgCopy.cpp
 
@@ -138,6 +148,16 @@ int DestroyIMGUI(void)
 	return 0;
 }
 
+
+void GetTicks(void)
+{
+
+	LastMillisecondTicks = MillisecondTicks;
+	MillisecondTicks = 1000 * glfwGetTime();
+
+}
+
+
 //set imgui's scale to that of the main system
 void SetUpUI(void)
 {
@@ -214,21 +234,23 @@ void RunBackends(void)
 
 }
 
-
-//windows
-void ShowTerminal(void)
+//updates the terminal buffer
+void WriteToTerminal(char* NewText)
 {
+
+	//I've moved all these variables outside the function so that several could access them.
+
 	//keep a pointer array for showing terminal text
-	static char* TerminalLines[TERMINAL_MAX_BUFFER]{};
+	//static char* TerminalLines[TERMINAL_MAX_BUFFER]{};
 
 
 	//static va_list TerminalLinesArguments[TERMINAL_MAX_BUFFER]{};
-	
-	bool SnapToBottom{};//set so we can lock and unlock scroll snapping to the bottom
+
+	//bool SnapToBottom{};//set so we can lock and unlock scroll snapping to the bottom
 
 
 	//if our buffer contents have changed
-	if (TerminalLines[TERMINAL_MAX_BUFFER - 1] != MidiConvertParams.TerminalText
+	if (TerminalLines[TERMINAL_MAX_BUFFER - 1] != NewText
 		)
 	{
 		//shifter function (move everything up in the array)
@@ -236,13 +258,13 @@ void ShowTerminal(void)
 		{
 			//move the pointer into the next array position
 			TerminalLines[i - 1] = TerminalLines[i];
-			
+
 
 		}
 
 
 		//put new values in the top of the array
-		TerminalLines[TERMINAL_MAX_BUFFER - 1] = MidiConvertParams.TerminalText;
+		TerminalLines[TERMINAL_MAX_BUFFER - 1] = NewText;
 
 		//tell the window to snap to the bottom again
 		SnapToBottom = true;
@@ -255,6 +277,13 @@ void ShowTerminal(void)
 		SnapToBottom = true;
 	}
 
+
+}
+
+
+//windows
+void ShowTerminal(void)
+{
 
 
 	ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(100, 100, 100, 255));
@@ -1132,6 +1161,9 @@ bool UpdateWindow(void)
 
 		ImGui::Begin("Main window", NULL, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
 
+	#ifdef DEBUG_MODE
+		ImGui::ShowMetricsWindow();
+	#endif
 
 		ShowTerminal();
 
@@ -1176,6 +1208,7 @@ bool TopFunction(void)
 	case 1://run
 		if (UpdateWindow())//returns a 1 when finished
 			currentState = 2;
+		GetTicks();
 		RunBackends();
 		break;
 	case 2://stop
@@ -1185,4 +1218,22 @@ bool TopFunction(void)
 		break;
 	}
 	return 0;
+}
+
+
+//runs the top function only once per millisecond interval specified
+void RunTopSparingly(int WaitMilliseconds)
+{
+
+	if (MillisecondTicks % WaitMilliseconds == 0 &&
+		MillisecondTicks != LastMillisecondTicks
+		)
+	{
+		TopFunction();
+	}
+	else
+	{
+		GetTicks();
+	}
+
 }

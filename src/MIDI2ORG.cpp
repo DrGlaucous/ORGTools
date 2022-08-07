@@ -97,21 +97,25 @@ void ExportStatus(const char* desc, ...)
 	//MidiConvertParams.TerminalArgs = args;
 
 	//allocate a char array the size of the text we got and send the terminaltext pointer there.
-	MidiConvertParams.TerminalText = (char*)malloc(BufferSize);
+	char* SecondFormatBuffer = (char*)malloc(BufferSize);
 
 
-	if (MidiConvertParams.TerminalText != NULL)
+	if (SecondFormatBuffer != NULL)
 	{
 		//make allocated memory chunk all null terminator
-		memset(MidiConvertParams.TerminalText, 0, strlen(desc) + 1);
+		memset(SecondFormatBuffer, 0, strlen(desc) + 1);
 
 		//copy our text to the buffer
-		strcpy(MidiConvertParams.TerminalText, FormatBuffer);
+		strcpy(SecondFormatBuffer, FormatBuffer);
 	}
 
+	//move data we gleaned into the terminal's memory
+	//(this function only updates the memory, it does not actually display the terminal)
+	WriteToTerminal(SecondFormatBuffer);
 
-
-	TopFunction();
+	//run top function 1x per millisecond value specified here.
+	//larger values mean faster processing times but less feedback
+	RunTopSparingly(20);
 
 
 }

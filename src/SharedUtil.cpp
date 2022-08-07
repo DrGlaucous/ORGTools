@@ -20,6 +20,7 @@ TRACKINFO tracks[MAXTRACK];
 
 
 
+
 //used to determine the new beat structure of the song
 int gcd(int a, int b) {
 	//gcd: greatest common difference

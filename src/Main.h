@@ -16,7 +16,7 @@
 #define MAXCHANNEL 16//MIDI's max supported insturment channels (each track can have this ammount)
 #define TERMINAL_MAX_BUFFER 128
 
-//gives tab options for the ImGUI demo
+//gives tab options for the ImGUI demo and shows perfomrance window during MIDI processing
 //#define DEBUG_MODE
 
 

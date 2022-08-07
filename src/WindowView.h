@@ -45,7 +45,8 @@ GLFWwindow* InitializeGLFW(const char* name);
 int DestroyGLFW(GLFWwindow* Lwindow);
 int InitializeIMGUI(GLFWwindow* Lwindow);
 int DestroyIMGUI(void);
+void WriteToTerminal(char* NewText);
 bool UpdateWindow(void);
 bool TopFunction(void);
-
+void RunTopSparingly(int WaitMilliseconds);
 
