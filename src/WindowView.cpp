@@ -925,7 +925,7 @@ void ShowMIDI2ORG(void)
 	//oddly enough, imgui has a function to get the region width, but not the height, so we have to do that ourselves (I don't want to modify the imgui libraries for compatibility sake)
 	int getWindowHeight = (ImGui::GetWindowContentRegionMax().y - ImGui::GetWindowContentRegionMin().y);
 
-	ImGui::BeginChild("Terminal Limit", ImVec2(ImGui::GetWindowContentRegionWidth(), getWindowHeight - (120 + (110 * ImGui::GetIO().FontGlobalScale   ))), clipRegion_flags);//adds a scroll region to the chart
+	ImGui::BeginChild("Terminal Limit", ImVec2(ImGui::GetWindowContentRegionWidth(), getWindowHeight - ( 120  + (MidiConvertParams.BackendOptions.ForceSimplify ? 35 : 0) + (MidiConvertParams.BackendOptions.HasDrumChannel ? 20 : 0)    + (110 * ImGui::GetIO().FontGlobalScale   ))), clipRegion_flags);//adds a scroll region to the chart
 	ShowTerminal();
 	ImGui::EndChild();
 
