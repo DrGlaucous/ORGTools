@@ -108,6 +108,7 @@ GLFWwindow* InitializeGLFW(const char* name)
 
 int DestroyGLFW(GLFWwindow* Lwindow)
 {
+	glfwSetErrorCallback(NULL);//end error handling (we're shutting down)
 	glfwDestroyWindow(Lwindow);
 	glfwTerminate();
 	return 0;
