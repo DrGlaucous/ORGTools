@@ -58,6 +58,12 @@ target_link_libraries(ORGTools PRIVATE ${CMAKE_DL_LIBS})
 target_include_directories(ORGTools PRIVATE "libs/glad/include")
 target_compile_definitions(ORGTools PRIVATE IMGUI_IMPL_OPENGL_LOADER_GLAD)
 
+#we have windows
+if(WIN32)
+	#add the define in the codespace
+	target_compile_definitions(ORGTools PRIVATE WINDOWS)
+endif()
+
 if(ORGTools_LEGACY_OPENGL)
 	target_compile_definitions(ORGTools PRIVATE LEGACY_OPENGL)
 	target_sources(ORGTools PRIVATE

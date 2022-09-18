@@ -10,7 +10,7 @@
 #endif
 
 
-#define VERSION_NO "1.0.0"
+#define VERSION_NO "1.0.0a"
 #define PATH_LENGTH 256
 #define MAXTRACK 16
 #define MAXCHANNEL 16//MIDI's max supported insturment channels (each track can have this ammount)

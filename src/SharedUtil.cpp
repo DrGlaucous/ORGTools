@@ -7,6 +7,12 @@
 #include <cstring>
 #include <sstream>
 #include <vector>
+#include <ctime>
+#ifdef WINDOWS
+//for getting the file path without any overlaying backend (like SDL)
+#include <windows.h>
+#include <libloaderapi.h>
+#endif
 
 
 #include "File.h"
@@ -93,6 +99,58 @@ int ValueMap(float val1Min, float val1Max, float val2Min, float val2Max, float i
 	return (int)floor(MapBuffer + 0.5);//round to nearest integer
 
 }
+
+
+
+//error handling
+void error_callback(int code, const char* description)
+{
+	char Path[PATH_LENGTH];
+
+	//TODO: more backends for getting file path for other systems
+#ifdef WINDOWS
+	GetModuleFileName(NULL, Path, PATH_LENGTH);
+
+#endif
+
+	//create file
+	FILE* fp;
+
+	strcat(Path, "_log.txt");
+
+	fp = fopen(Path, "ab");//append binary
+	if (fp == NULL)
+		return;
+
+
+	//write error code
+
+
+	//get a memory chunk the size of the drescription of error + a little extra for other text
+	char* ErrorText = (char*)malloc(strlen(description) + 0xFF);
+
+	if (ErrorText == NULL)
+		return;
+
+	memset(ErrorText, 0, strlen(description) + 0xFF);
+
+	sprintf(ErrorText, "\nGot Error Code: %d\nDescription:\n", code);
+	strcat(ErrorText, description);
+
+	//write it to the file
+	fwrite(ErrorText, strlen(ErrorText), 1, fp);
+
+	//destroy buffer; we dont need it anymore
+	free(ErrorText);
+
+	fclose(fp);
+
+
+}
+
+
+
+
 
 //change the timing of a song, give it the pointer to the file and the stretch values
 void StretchSong(unsigned char* memfile, char bpmStretch, char dotStretch)

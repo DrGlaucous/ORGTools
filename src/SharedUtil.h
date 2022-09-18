@@ -59,6 +59,8 @@ int gcdArray(std::vector<int> processArray);
 bool isPower(int entry, int powerOf);
 int ValueMap(float val1Min, float val1Max, float val2Min, float val2Max, float input);
 
+void error_callback(int code, const char* description);
+
 void StretchSong(unsigned char* memfile, char bpmStretch, char dotStretch);
 bool VerifyFile(const char* path);
 int VerifyFile_MIDI(const char* path);

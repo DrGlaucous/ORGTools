@@ -16,6 +16,8 @@
 #endif
 
 
+
+
 #include "WindowView.h"
 #include "ORGCopy.h"
 #include "MIDI2ORG.h"
@@ -25,7 +27,6 @@
 
 #define WINDOW_WIDTH 720
 #define WINDOW_HEIGHT 720
-
 
 GLFWwindow* window = NULL;
 GLFWmonitor* monitor = NULL;
@@ -56,6 +57,7 @@ bool SnapToBottom{};//set so we can lock and unlock scroll snapping to the botto
 TopBarOPTIONS TabOptions{};
 //ORGCopyOPTIONS OrgCopySettings{}; //variable exists in OrgCopy.cpp
 
+
 //boilerplate start and stop scripts
 GLFWwindow* InitializeGLFW(const char* name)
 {
@@ -65,7 +67,10 @@ GLFWwindow* InitializeGLFW(const char* name)
 	if (!glfwInit())
 		//return -1;
 	{
+		error_callback(NULL, "Error: Could not initialize GLFW!");
 	}
+
+	glfwSetErrorCallback(error_callback);//handle errors
 
 #ifdef LEGACY_OPENGL
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
